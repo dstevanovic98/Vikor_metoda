@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>
+    {% block title %}
+
+    {% endblock %}
+  </h2>
+
+  <form method="post" style="text-align: center;" action="{{ url_for('add_alternatives_names') }}">
+    {% for row in num_of_alternatives %}
+      <label for="Alternativa{{ row + 1 }}">Alternativa {{ row + 1 }}:</label><br />
+      <input type="text" name="Alternativa{{ row + 1 }}" style="width: 15%;" required /><br />
+      <br />
+      {% for colum in num_of_criteria %}
+        <label for="Alternativa_kriterij{{ colum + 1 }}">Kriterij {{ colum + 1 }}:</label><br />
+        <input type="number" name="Alternativa_kriterij{{ colum + 1 }}+{{ row + 1 }}" style="width: 15%;" step="0.01" required /><br />
+        <br />
+      {% endfor %}
+    {% endfor %}
+    <input type="submit" value="Submit" />
+  </form>
+{% endblock %}

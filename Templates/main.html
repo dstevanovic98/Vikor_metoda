@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 style="text-align: center;">{% block title %} Calculation is running... {% endblock %}</h1>
+    <h3 style="text-align: center;">Results:</h3>
+    <table style="width: 40%; margin-left: auto; margin-right: auto; text-align: center;">
+        <thead>
+            <tr>
+                <th>Alternative:</th>
+                <th>Value:</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for alternative in result %}
+            <tr>
+                <td>{{alternative[1]}}</td>
+                <td>{{alternative[0]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p style="text-align: center;"> The best alternative is first one in table. It has smallest <strong>Q</strong> value.</p>
+{% endblock %}
+

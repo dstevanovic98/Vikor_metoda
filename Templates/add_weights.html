@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>
+    {% block title %}
+
+    {% endblock %}
+  </h2>
+    <h3>Atributes:</h3>
+    <h5>Cost = False</h5>
+    <h5>Benefitial = True</h5>
+
+    <form method="post" style="text-align: center;" action="{{ url_for('add_weights_new') }}">
+        {% for row in num_of_weights %}
+        <label for="Weight{{row + 1}}">Weight {{row + 1}}:</label><br />
+        <input type="text" name="Weight{{row + 1 }}" style="width: 15%;" required/><br />
+        <br />
+        <label for="Atribute{{row + 1}}">Atribute {{row + 1}}:</label><br/>
+        <select name="Atribute{{row + 1 }}" style="text-align: center; width: 15%;">
+            <option value="True">True</option>
+            <option value="False">False</option>
+        </select>
+        <br />
+        {% endfor %}
+        <input type="submit" value="Submit" />      
+    </form>
+
+  
+{% endblock %}

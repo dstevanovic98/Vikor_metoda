@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>
+    {% block title %} {% endblock %}
+  </h2>
+  
+  <form method="post" action="{{ url_for('add_data') }}" style="text-align: center;">
+    <label for="fname" >Select number of criterias: </label><br />
+    <input type="number" id="number_of_criteria" name="number_of_criteria" style="width: 20%;" required/><br />
+    <label for="lname">Select number of alternatives:</label><br />
+    <input type="number" id="number_of_alternatives" name="number_of_alternatives" style="width: 20%;" required/><br /><br />
+    <input type="submit" value="Submit" />
+  </form>
+{% endblock %}
